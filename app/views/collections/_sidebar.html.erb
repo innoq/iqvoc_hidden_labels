@@ -1,3 +1,4 @@
+<% if can? :export, Concept::Base %>
   <%= sidebar do %>
     <%= sidebar_header 'Links' %>
     <%= sidebar_item :icon => :edit, :text => t("txt.views.collections.new"), :path => new_collection_path,
