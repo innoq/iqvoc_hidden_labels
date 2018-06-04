@@ -6,7 +6,5 @@ Rails.application.routes.draw do
       end
     end
     resources :collections, :controller => "oerk_collections"
-    #FIXME: duplicate route
-    #get 'search' => 'search_results#index', as: 'search'
   end
 end
