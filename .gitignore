@@ -22,6 +22,6 @@ config/initializers/secret_token.rb
 public/assets
 .idea/
 db/schema.rb
-public/export
-public/uploads
+public/export/*
+public/uploads/*
 coverage/*
