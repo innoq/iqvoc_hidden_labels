@@ -49,6 +49,8 @@ class OerkAbility
       if user.owns_role?(:administrator)
         can [:update, :destroy, :unlock], [::Concept::Base, ::Label::Base], published_at: nil # Mustn't be locked by myself
 
+        can :destroy, ::Concept::Base
+
         can :manage, User
         can :manage, Iqvoc.config
 
