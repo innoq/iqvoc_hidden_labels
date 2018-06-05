@@ -2,7 +2,9 @@
 class Concept::OERK::Base < Concept::SKOS::Base
 
   before_destroy do |concept|
-    if concept.narrower_relations.any?
+    if concept.unpublished?
+      #do nothing
+    elsif concept.narrower_relations.any?
       throw(:abort)
     else
       Iqvoc::Concept.base_class.by_origin(concept.origin).unpublished.destroy_all
