@@ -14,7 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-require 'pry'
 class HierarchyController < ApplicationController
   resource_description do
     name 'Hierarchy'
@@ -149,7 +148,6 @@ class HierarchyController < ApplicationController
     response.cache_control[:public] = !include_unpublished # XXX: this should not be necessary!?
     return unless stale?(etag: [latest, params], last_modified: latest,
         public: !include_unpublished)
-    binding.pry
 
     # NB: order matters due to the `where` clause below
     if direction == 'up'
@@ -170,7 +168,6 @@ class HierarchyController < ApplicationController
     @relation_class = Iqvoc::Concept.broader_relation_class
     @relation_class = @relation_class.narrower_class unless direction == 'up'
 
-    binding.pry
     respond_to do |format|
       format.html { render 'hierarchy/show' }
       format.any(:rdf, :ttl) { render 'hierarchy/show' } if can?(:export, Concept::Base)
