@@ -89,7 +89,7 @@ class OerkConceptsController < ConceptsController
 
       authorize! :destroy, @concept
 
-      if catch(:abort){@concept.destroy}
+      if @concept.narrowest_destroy
         flash[:success] = I18n.t('txt.controllers.concepts.delete')
         redirect_to dashboard_path
       else

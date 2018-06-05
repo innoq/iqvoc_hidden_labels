@@ -1,13 +1,11 @@
 # encoding: UTF-8
 class Concept::OERK::Base < Concept::SKOS::Base
 
-  before_destroy do |concept|
-    if concept.unpublished?
-      #do nothing
-    elsif concept.narrower_relations.any?
-      throw(:abort)
+  def narrowest_destroy
+    if self.narrower_relations.any?
+      false
     else
-      Iqvoc::Concept.base_class.by_origin(concept.origin).unpublished.destroy_all
+      Iqvoc::Concept.base_class.by_origin(self.origin).destroy_all
     end
   end
 
