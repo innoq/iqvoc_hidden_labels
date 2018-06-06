@@ -146,6 +146,7 @@ GEM
     kaminari-bootstrap (3.0.1)
       kaminari (>= 0.13.0)
       rails
+    libv8 (3.16.14.19-x86_64-darwin-16)
     link_header (0.0.8)
     linkeddata (1.1.11.2)
       equivalent-xml (~> 0.5)
@@ -183,7 +184,7 @@ GEM
     minitest (5.11.3)
     multi_json (1.13.1)
     multipart-post (2.0.0)
-    mysql2 (0.3.21)
+    mysql2 (0.3.18)
     net-http-persistent (2.9.4)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
@@ -277,6 +278,7 @@ GEM
       rdf (~> 1.1, >= 1.1.10)
     rdf-xsd (1.1.5.1)
       rdf (~> 1.1, >= 1.1.9, < 1.99)
+    ref (2.0.0)
     request_store (1.4.1)
       rack (>= 1.4)
     sass (3.5.6)
@@ -312,6 +314,9 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sxp (0.1.5)
+    therubyracer (0.12.3)
+      libv8 (~> 3.16.14.15)
+      ref
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
@@ -335,8 +340,9 @@ DEPENDENCIES
   iqvoc!
   mysql2 (~> 0.3.18)
   pry-rails
+  therubyracer
   view_marker
   web-console
 
 BUNDLED WITH
-   1.16.1
+   1.16.2

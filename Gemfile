@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'iqvoc', :git => 'https://github.com/innoq/iqvoc.git', :branch => 'hidden_labels'
 gem 'mysql2', '~> 0.3.18'
+gem 'therubyracer'
 
 group :development do
   gem 'view_marker'
