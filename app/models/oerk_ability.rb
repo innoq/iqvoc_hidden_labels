@@ -20,6 +20,11 @@ class OerkAbility
         can :read, [::Concept::Base, ::Collection::Base, ::Label::Base]
       end
 
+      if user.owns_role?(:exporter)
+        can :read, [::Concept::Base, ::Collection::Base, ::Label::Base]
+        can :export, ::Concept::Base
+      end
+
       if user.owns_role?(:editor) || user.owns_role?(:publisher) || user.owns_role?(:administrator) # Editors and above ...
         can :read, [::Concept::Base, ::Collection::Base, ::Label::Base]
         can :create, [::Concept::Base, ::Collection::Base, ::Label::Base]
