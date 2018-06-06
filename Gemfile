@@ -16,4 +16,5 @@ end
 
 group :production do
   gem 'passenger'
+  gem 'rollbar'
 end

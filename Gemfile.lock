@@ -285,6 +285,8 @@ GEM
     ref (2.0.0)
     request_store (1.4.1)
       rack (>= 1.4)
+    rollbar (2.16.2)
+      multi_json
     sass (3.5.6)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -347,6 +349,7 @@ DEPENDENCIES
   passenger
   pry-rails
   rails (~> 4.2.10)
+  rollbar
   therubyracer
   view_marker
   web-console
