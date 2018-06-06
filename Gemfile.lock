@@ -346,6 +346,7 @@ DEPENDENCIES
   mysql2 (~> 0.3.18)
   passenger
   pry-rails
+  rails (~> 4.2.10)
   therubyracer
   view_marker
   web-console
