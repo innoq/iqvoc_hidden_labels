@@ -10,7 +10,7 @@ class Concept::OERK::Base < Concept::SKOS::Base
   end
 
   def additional_info
-    map_broaders = broader_relations.any? ? "< #{broader_relations.map{|br| br.target.pref_label.value}.join(", ")}" : ""
+    map_broaders = broader_relations.any? ? "< #{broader_relations.map{|br| br.target.pref_label.try(:value)}.join(", ")}" : ""
     "#{top_term ? self.class.human_attribute_name("top_term") : map_broaders}"
   end
 
