@@ -55,11 +55,6 @@ class HierarchyController < ApplicationController
     depth = params[:depth] || (unbounded? ? -1 : nil)
 
     render_hierarchy 'scheme', depth, unbounded?
-
-    respond_to do |format|
-      format.html
-      format.any(:rdf, :ttl) if can?(:export, Concept::Base)
-    end
   end
 
   api :GET, 'hierarchy/:root', "Retrieve a concept's up- or downwards "\
@@ -146,8 +141,15 @@ class HierarchyController < ApplicationController
     # caching -- NB: invalidated on any in-scope concept modifications
     latest = scope.maximum(:updated_at)
     response.cache_control[:public] = !include_unpublished # XXX: this should not be necessary!?
-    return unless stale?(etag: [latest, params], last_modified: latest,
+
+    unless stale?(etag: [latest, params], last_modified: latest,
         public: !include_unpublished)
+        respond_to do |format|
+          format.html
+          format.any(:rdf, :ttl) if can?(:export, Concept::Base)
+        end
+        return
+    end
 
     # NB: order matters due to the `where` clause below
     if direction == 'up'
