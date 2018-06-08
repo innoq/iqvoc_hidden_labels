@@ -81,7 +81,7 @@ class OerkConceptsController < ConceptsController
         flash[:success] = I18n.t('txt.controllers.concept_versions.delete')
         redirect_to published_concept.present? ? concept_path(id: published_concept.origin) : dashboard_path
       else
-        flash[:success] = I18n.t('txt.controllers.concept_versions.delete_error')
+        flash[:error] = I18n.t('txt.controllers.concept_versions.delete_error')
         redirect_to concept_path(published: 0, id: @new_concept)
       end
     else
@@ -93,7 +93,7 @@ class OerkConceptsController < ConceptsController
         flash[:success] = I18n.t('txt.controllers.concepts.delete')
         redirect_to dashboard_path
       else
-        flash[:success] = I18n.t('txt.controllers.concepts.dependent_delete_error')
+        flash[:error] = I18n.t('txt.controllers.concepts.dependent_delete_error')
         redirect_to concept_path(id: @concept)
       end
     end
