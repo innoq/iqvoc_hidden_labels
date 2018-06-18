@@ -23,6 +23,11 @@ class OerkAbility
       if user.owns_role?(:exporter)
         can :read, [::Concept::Base, ::Collection::Base, ::Label::Base]
         can :export, ::Concept::Base
+
+        # required that exporter is able to see export admin menu
+        # beside menu display, there is a fine-granular right check
+        # so no side effects
+        can :use, :administration
       end
 
       if user.owns_role?(:editor) || user.owns_role?(:publisher) || user.owns_role?(:administrator) # Editors and above ...
