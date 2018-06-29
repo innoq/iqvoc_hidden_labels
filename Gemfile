@@ -5,7 +5,6 @@ gem 'iqvoc', :git => 'https://github.com/innoq/iqvoc.git', :branch => 'hidden_la
 gem 'mysql2', '~> 0.3.18'
 gem 'therubyracer'
 gem 'daemons'
-gem 'rollbar'
 
 group :development do
   gem 'view_marker'
